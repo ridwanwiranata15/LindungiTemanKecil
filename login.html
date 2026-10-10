@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Admin — LindungiTemanKecil</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary: #6C5CE7;
+  --primary-dark: #4B3FD1;
+  --primary-soft: #EEEBFF;
+  --accent: #FF6B6B;
+  --dark: #14142B;
+  --text: #2C2C44;
+  --muted: #6E6E8A;
+  --line: #E7E7F2;
+  --bg: #F8F8FD;
+  --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  color: var(--text);
+  background:
+    radial-gradient(1000px 600px at 20% 0%, #3A2E8F 0%, transparent 60%),
+    radial-gradient(800px 500px at 100% 100%, #7A3B6E 0%, transparent 60%),
+    linear-gradient(160deg, #16162E 0%, #14142B 55%, #1C1636 100%);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* dekorasi titik-titik */
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
+  background-size: 34px 34px;
+  pointer-events: none;
+  mask-image: radial-gradient(circle at 50% 0%, #000 10%, transparent 72%);
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 10%, transparent 72%);
+}
+
+/* kartu login */
+.login-box {
+  position: relative;
+  width: min(420px, 100%);
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 24px;
+  padding: 40px 34px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 22px 60px rgba(20,20,43,.4);
+  color: #fff;
+  animation: fadeUp .55s cubic-bezier(.2,.7,.3,1);
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.login-logo {
+  width: 58px; height: 58px; border-radius: 16px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: grid; place-items: center; margin-bottom: 24px;
+  box-shadow: 0 12px 28px rgba(108,92,231,.42);
+}
+.login-logo svg { width: 28px; height: 28px; }
+
+.login-box h1 {
+  font-size: 1.5rem; font-weight: 800;
+  letter-spacing: -.02em; margin-bottom: 6px;
+}
+.login-box .sub {
+  color: #A9A9C7; font-size: .9rem; margin-bottom: 30px;
+}
+
+.field { margin-bottom: 16px; }
+.field label {
+  display: block; font-size: .76rem; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: #B8B8D4; margin-bottom: 8px;
+}
+.field .input-wrap { position: relative; }
+.field input {
+  width: 100%; padding: 14px 46px 14px 16px;
+  background: rgba(0,0,0,.28);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 12px; color: #fff; outline: none;
+  font-size: .95rem;
+  transition: border-color .2s, background .2s;
+}
+.field input:focus {
+  border-color: var(--primary);
+  background: rgba(0,0,0,.4);
+  box-shadow: 0 0 0 4px rgba(108,92,231,.18);
+}
+.field input::placeholder { color: #7C7C9E; }
+
+.toggle-pass {
+  position: absolute; right: 6px; top: 50%;
+  transform: translateY(-50%);
+  width: 36px; height: 36px;
+  border: none; background: transparent;
+  color: #A9A9C7; cursor: pointer;
+  border-radius: 8px;
+  display: grid; place-items: center;
+  font-size: 1rem;
+  transition: background .2s, color .2s;
+}
+.toggle-pass:hover { background: rgba(255,255,255,.08); color: #fff; }
+
+.error {
+  font-size: .85rem; color: #FFB3B3;
+  background: rgba(255,107,107,.14);
+  border: 1px solid rgba(255,107,107,.32);
+  padding: 11px 14px; border-radius: 10px;
+  margin-bottom: 16px;
+  display: none;
+  align-items: center; gap: 8px;
+}
+.error.show { display: flex; animation: shake .4s ease; }
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.submit-btn {
+  width: 100%; padding: 15px;
+  border: none; border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff; font-weight: 700; font-size: .96rem;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(108,92,231,.4);
+  transition: transform .2s, box-shadow .2s, opacity .2s;
+  margin-top: 8px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+}
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(108,92,231,.5);
+}
+.submit-btn:active:not(:disabled) { transform: translateY(0); }
+.submit-btn:disabled { opacity: .7; cursor: wait; }
+
+.spinner {
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.hint {
+  margin-top: 24px; padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  font-size: .78rem; color: #8A8AAE;
+  text-align: center; line-height: 1.7;
+}
+.hint code {
+  background: rgba(255,255,255,.1);
+  padding: 2px 8px; border-radius: 6px;
+  color: #C7BEFF; font-size: .8rem;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+.back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 18px; font-size: .82rem;
+  color: #A9A9C7; transition: color .2s;
+}
+.back-link:hover { color: #fff; }
+.back-link-center { text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="login-box">
+  <div class="login-logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="11" width="18" height="11" rx="2"/>
+      <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+    </svg>
+  </div>
+
+  <h1>Login Admin</h1>
+  <p class="sub">Masuk untuk mengelola LindungiTemanKecil.</p>
+
+  <div class="error" id="errorBox">
+    <span>⚠️</span><span id="errorText">Username atau password salah.</span>
+  </div>
+
+  <form id="loginForm" novalidate>
+    <div class="field">
+      <label for="user">Username</label>
+      <div class="input-wrap">
+        <input type="text" id="user" placeholder="Masukkan username" autocomplete="username" required>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="pass">Password</label>
+      <div class="input-wrap">
+        <input type="password" id="pass" placeholder="Masukkan password" autocomplete="current-password" required>
+        <button type="button" class="toggle-pass" id="togglePass" aria-label="Tampilkan password">👁️</button>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn" id="submitBtn">
+      <span id="btnText">Masuk →</span>
+    </button>
+  </form>
+
+  <p class="hint">
+    Demo login<br>
+    user: <code>admin</code> · pass: <code>admin123</code>
+  </p>
+
+  <div class="back-link-center">
+    <a href="index.html" class="back-link">← Kembali ke website</a>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   KONFIGURASI
+   ============================================================ */
+const ADMIN_USER = 'admin';
+const ADMIN_PASS = 'admin123';           // ganti di produksi!
+const SESSION_KEY = 'ltk_admin_session';
+const ADMIN_PAGE  = 'admin.html';         // halaman setelah login
+const SESSION_MAX = 1000 * 60 * 60;       // 1 jam
+
+/* Jika sudah login, langsung ke admin */
+try {
+  const sesi = JSON.parse(sessionStorage.getItem(SESSION_KEY) || 'null');
+  if (sesi && sesi.loginAt && (Date.now() - sesi.loginAt) < SESSION_MAX) {
+    location.replace(ADMIN_PAGE);
+  }
+} catch {}
+
+/* ============================================================
+   ELEMEN
+   ============================================================ */
+const form       = document.getElementById('loginForm');
+const userInput  = document.getElementById('user');
+const passInput  = document.getElementById('pass');
+const errorBox   = document.getElementById('errorBox');
+const errorText  = document.getElementById('errorText');
+const submitBtn  = document.getElementById('submitBtn');
+const btnText    = document.getElementById('btnText');
+const togglePass = document.getElementById('togglePass');
+
+/* Toggle show/hide password */
+togglePass.addEventListener('click', () => {
+  const isPass = passInput.type === 'password';
+  passInput.type = isPass ? 'text' : 'password';
+  togglePass.textContent = isPass ? '🙈' : '👁️';
+});
+
+/* ============================================================
+   SUBMIT LOGIN
+   ============================================================ */
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  errorBox.classList.remove('show');
+
+  const u = userInput.value.trim();
+  const p = passInput.value;
+
+  if (!u || !p) {
+    showError('Username dan password wajib diisi.');
+    return;
+  }
+
+  // Simulasi proses login
+  submitBtn.disabled = true;
+  btnText.innerHTML = '<span class="spinner"></span> Memeriksa...';
+
+  setTimeout(() => {
+    if (u === ADMIN_USER && p === ADMIN_PASS) {
+      try {
+        sessionStorage.setItem(SESSION_KEY, JSON.stringify({
+          user: u,
+          loginAt: Date.now()
+        }));
+      } catch {}
+
+      btnText.textContent = '✓ Berhasil! Mengalihkan...';
+      setTimeout(() => location.replace(ADMIN_PAGE), 500);
+
+    } else {
+      showError('Username atau password salah. Coba lagi.');
+      passInput.value = '';
+      passInput.focus();
+      submitBtn.disabled = false;
+      btnText.textContent = 'Masuk →';
+    }
+  }, 700);
+});
+
+function showError(msg) {
+  errorText.textContent = msg;
+  errorBox.classList.remove('show');
+  void errorBox.offsetWidth;   // reset animasi
+  errorBox.classList.add('show');
+}
+
+/* Autofocus */
+userInput.focus();
+</script>
+
+</body>
+</html>

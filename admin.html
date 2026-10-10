@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel — LindungiTemanKecil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RESET & VARIABEL
+   ============================================================ */
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary: #6C5CE7;
+  --primary-dark: #4B3FD1;
+  --primary-soft: #EEEBFF;
+  --accent: #FF6B6B;
+  --accent-soft: #FFEDED;
+  --teal: #00B894;
+  --teal-soft: #E3FBF5;
+  --amber: #FFB020;
+  --amber-soft: #FFF6E5;
+  --dark: #14142B;
+  --text: #2C2C44;
+  --muted: #6E6E8A;
+  --line: #E7E7F2;
+  --bg: #F8F8FD;
+  --white: #fff;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(20,20,43,.08);
+  --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+button, input, textarea, select { font-family: inherit; font-size: inherit; }
+ul { list-style: none; }
+a { color: inherit; text-decoration: none; }
+
+/* ============================================================
+   TOPBAR
+   ============================================================ */
+.topbar {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+  position: sticky; top: 0; z-index: 50;
+  box-shadow: 0 2px 10px rgba(20,20,43,.04);
+}
+.topbar__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; width: min(1280px, 94%); margin-inline: auto;
+}
+.logo { display: flex; align-items: center; gap: 11px; font-weight: 800; font-size: 1rem; letter-spacing: -.02em; }
+.logo__mark {
+  width: 38px; height: 38px; border-radius: 11px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: grid; place-items: center;
+  box-shadow: 0 8px 18px rgba(108,92,231,.34);
+  flex-shrink: 0;
+}
+.logo__mark svg { width: 20px; height: 20px; }
+.logo__text span { color: var(--primary); }
+.logo__badge {
+  font-size: .66rem; font-weight: 800; letter-spacing: .08em;
+  background: var(--accent); color: #fff;
+  padding: 3px 9px; border-radius: 999px; margin-left: 6px;
+}
+
+.topbar__actions { display: flex; gap: 10px; align-items: center; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  padding: 9px 18px; border-radius: 10px; border: none;
+  font-weight: 700; font-size: .85rem; cursor: pointer;
+  transition: transform .18s, box-shadow .18s, background .18s, color .18s;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn--primary { background: var(--primary); color: #fff; box-shadow: 0 6px 16px rgba(108,92,231,.3); }
+.btn--primary:hover { background: var(--primary-dark); }
+.btn--ghost { background: var(--bg); color: var(--text); border: 1px solid var(--line); }
+.btn--ghost:hover { border-color: var(--primary); color: var(--primary); }
+.btn--danger { background: var(--accent); color: #fff; }
+.btn--danger:hover { background: #e85555; }
+.btn--sm { padding: 6px 12px; font-size: .78rem; border-radius: 8px; }
+.btn--icon { padding: 7px; width: 32px; height: 32px; border-radius: 8px; }
+
+/* ============================================================
+   CONTAINER & HEAD
+   ============================================================ */
+.container { width: min(1280px, 94%); margin: 30px auto 60px; }
+
+.page-head { margin-bottom: 26px; }
+.page-head h1 { font-size: 1.7rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: 4px; }
+.page-head p { color: var(--muted); font-size: .93rem; }
+
+/* ============================================================
+   STAT CARDS
+   ============================================================ */
+.stat-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px; margin-bottom: 30px;
+}
+.stat-card {
+  background: #fff; border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 20px;
+  box-shadow: var(--shadow);
+  transition: transform .22s, box-shadow .22s;
+}
+.stat-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(20,20,43,.12); }
+.stat-card__icon {
+  width: 40px; height: 40px; border-radius: 11px;
+  display: grid; place-items: center; font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+.sc-purple { background: var(--primary-soft); }
+.sc-teal   { background: var(--teal-soft); }
+.sc-red    { background: var(--accent-soft); }
+.sc-amber  { background: var(--amber-soft); }
+.stat-card__num {
+  font-size: 1.9rem; font-weight: 800;
+  letter-spacing: -.03em; line-height: 1;
+}
+.stat-card__label { font-size: .82rem; color: var(--muted); font-weight: 600; margin-top: 5px; }
+
+/* ============================================================
+   TAB NAVIGASI
+   ============================================================ */
+.tabs {
+  display: flex; gap: 6px; flex-wrap: wrap;
+  background: #fff; border: 1px solid var(--line);
+  border-radius: 14px; padding: 6px;
+  margin-bottom: 20px; box-shadow: var(--shadow);
+}
+.tab {
+  padding: 10px 20px; border: none; background: transparent;
+  border-radius: 10px; font-weight: 700; font-size: .88rem;
+  color: var(--muted); cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.tab:hover { background: var(--bg); color: var(--text); }
+.tab.active { background: var(--primary); color: #fff; box-shadow: 0 6px 16px rgba(108,92,231,.32); }
+
+/* ============================================================
+   PANEL
+   ============================================================ */
+.panel { display: none; animation: fadeIn .3s ease; }
+.panel.active { display: block; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.panel-head {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 14px; margin-bottom: 16px;
+}
+.panel-head h2 { font-size: 1.2rem; font-weight: 800; letter-spacing: -.01em; }
+.panel-head p { color: var(--muted); font-size: .85rem; }
+.panel-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.toolbar {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  background: #fff; border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 12px 16px;
+  margin-bottom: 14px; box-shadow: var(--shadow);
+}
+.toolbar input[type="search"], .toolbar select {
+  padding: 9px 14px; border: 1px solid var(--line);
+  border-radius: 9px; background: var(--bg);
+  color: var(--text); outline: none; font-size: .88rem;
+  transition: border-color .2s, background .2s;
+}
+.toolbar input[type="search"] { flex: 1; min-width: 200px; }
+.toolbar input:focus, .toolbar select:focus {
+  border-color: var(--primary); background: #fff;
+}
+
+/* ============================================================
+   TABEL
+   ============================================================ */
+.table-wrap {
+  background: #fff; border: 1px solid var(--line);
+  border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow);
+}
+table {
+  width: 100%; border-collapse: collapse;
+  font-size: .9rem;
+}
+thead {
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+th {
+  text-align: left; padding: 14px 16px;
+  font-size: .74rem; font-weight: 800;
+  letter-spacing: .07em; text-transform: uppercase;
+  color: var(--muted); white-space: nowrap;
+}
+td {
+  padding: 14px 16px; border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr { transition: background .18s; }
+tbody tr:hover { background: #FAFAFF; }
+tbody tr.pinned { background: linear-gradient(to right, var(--primary-soft), transparent 60%); }
+
+.td-num { color: var(--muted); font-size: .82rem; font-weight: 600; width: 50px; }
+.td-avatar {
+  display: flex; align-items: center; gap: 11px;
+}
+.avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-weight: 800; font-size: .82rem; color: #fff;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+}
+.td-name { font-weight: 700; }
+.td-meta { font-size: .76rem; color: var(--muted); }
+.td-text {
+  max-width: 420px; line-height: 1.55;
+  color: var(--text); font-size: .88rem;
+}
+.td-actions { display: flex; gap: 5px; white-space: nowrap; }
+
+.badge {
+  display: inline-block;
+  font-size: .68rem; font-weight: 800;
+  letter-spacing: .05em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 999px;
+  white-space: nowrap;
+}
+.badge--purple { background: var(--primary-soft); color: var(--primary); }
+.badge--teal   { background: var(--teal-soft); color: #067A5C; }
+.badge--red    { background: var(--accent-soft); color: #B33A3A; }
+.badge--amber  { background: var(--amber-soft); color: #8B5E00; }
+
+/* Empty state */
+.empty {
+  text-align: center; padding: 60px 20px;
+  color: var(--muted);
+}
+.empty__icon { font-size: 2.4rem; margin-bottom: 12px; opacity: .5; }
+.empty h4 { font-weight: 700; color: var(--text); margin-bottom: 4px; font-size: .98rem; }
+
+/* ============================================================
+   MODAL EDIT
+   ============================================================ */
+.modal-bg {
+  position: fixed; inset: 0; z-index: 800;
+  background: rgba(20,20,43,.55);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  display: grid; place-items: center; padding: 20px;
+  opacity: 0; visibility: hidden; transition: .25s;
+}
+.modal-bg.show { opacity: 1; visibility: visible; }
+.modal {
+  width: min(520px, 100%); background: #fff;
+  border-radius: var(--radius); padding: 28px;
+  box-shadow: 0 22px 60px rgba(20,20,43,.2);
+  transform: scale(.94); transition: transform .28s;
+  max-height: 92vh; overflow-y: auto;
+}
+.modal-bg.show .modal { transform: scale(1); }
+.modal h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 20px; }
+.field { margin-bottom: 14px; }
+.field label {
+  display: block; font-size: .74rem; font-weight: 800;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 6px;
+}
+.field input, .field textarea, .field select {
+  width: 100%; padding: 11px 14px;
+  border: 1px solid var(--line); border-radius: 10px;
+  background: var(--bg); outline: none; font-size: .9rem;
+  transition: border-color .2s, background .2s;
+}
+.field input:focus, .field textarea:focus, .field select:focus {
+  border-color: var(--primary); background: #fff;
+}
+.field textarea { min-height: 100px; resize: vertical; }
+.modal__actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 22px; }
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+.toast {
+  position: fixed; bottom: 26px; left: 50%;
+  transform: translate(-50%, 100px);
+  background: var(--dark); color: #fff;
+  padding: 13px 22px; border-radius: 12px;
+  font-size: .9rem; font-weight: 600;
+  box-shadow: 0 18px 40px rgba(20,20,43,.25);
+  z-index: 900; opacity: 0; pointer-events: none;
+  transition: transform .35s cubic-bezier(.2,.7,.3,1), opacity .35s;
+  display: flex; align-items: center; gap: 10px;
+}
+.toast.show { transform: translate(-50%, 0); opacity: 1; }
+.toast--ok  { background: linear-gradient(135deg, #00B894, #00D1A8); }
+.toast--err { background: linear-gradient(135deg, #FF6B6B, #E85555); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 720px) {
+  .topbar__inner { flex-wrap: wrap; }
+  .container { margin: 20px auto 50px; }
+  .page-head h1 { font-size: 1.35rem; }
+  .table-wrap { overflow-x: auto; }
+  table { min-width: 700px; }
+  .stat-card__num { font-size: 1.6rem; }
+  .tabs { overflow-x: auto; flex-wrap: nowrap; }
+  .tab { flex-shrink: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOPBAR
+     ============================================================ -->
+<header class="topbar">
+  <div class="topbar__inner">
+    <div class="logo">
+      <span class="logo__mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+      </span>
+      <span class="logo__text">Lindungi<span>TemanKecil</span></span>
+      <span class="logo__badge">ADMIN</span>
+    </div>
+
+    <div class="topbar__actions">
+      <a href="index.html" class="btn btn--ghost btn--sm">🌐 Lihat Website</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     KONTEN
+     ============================================================ -->
+<div class="container">
+
+  <div class="page-head">
+    <h1>Panel Admin</h1>
+    <p>Kelola pesan dinding harapan dan cerita korban perundungan.</p>
+  </div>
+
+  <!-- STAT CARDS -->
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-card__icon sc-purple">💬</div>
+      <div class="stat-card__num" id="statUserMsg">0</div>
+      <div class="stat-card__label">Pesan Pengunjung</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__icon sc-teal">📖</div>
+      <div class="stat-card__num" id="statStories">0</div>
+      <div class="stat-card__label">Cerita Korban</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__icon sc-red">📌</div>
+      <div class="stat-card__num" id="statPinned">0</div>
+      <div class="stat-card__label">Pesan Disematkan</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__icon sc-amber">📦</div>
+      <div class="stat-card__num" id="statSize">0 KB</div>
+      <div class="stat-card__label">Total Data Tersimpan</div>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab active" data-panel="messages">💬 Dinding Harapan</button>
+    <button class="tab" data-panel="stories">📖 Cerita Korban</button>
+  </div>
+
+  <!-- ============================================================
+       PANEL: DINDING HARAPAN
+       ============================================================ -->
+  <section class="panel active" id="panel-messages">
+    <div class="panel-head">
+      <div>
+        <h2>Dinding Harapan</h2>
+        <p>Semua pesan yang ditampilkan di halaman utama website.</p>
+      </div>
+      <div class="panel-actions">
+        <button class="btn btn--primary btn--sm" id="addMsg">+ Tambah Pesan</button>
+        <button class="btn btn--danger btn--sm" id="clearUserMsg">🗑️ Hapus Pesan Pengunjung</button>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="msgSearch" placeholder="🔍 Cari pesan atau nama...">
+      <select id="msgFilter">
+        <option value="all">Semua Tipe</option>
+        <option value="user">Dari Pengunjung</option>
+        <option value="default">Pesan Bawaan</option>
+        <option value="pinned">Disematkan</option>
+      </select>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Pengirim</th>
+            <th>Pesan</th>
+            <th>Tipe</th>
+            <th>Waktu</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="msgTbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PANEL: CERITA KORBAN
+       ============================================================ -->
+  <section class="panel" id="panel-stories">
+    <div class="panel-head">
+      <div>
+        <h2>Cerita Korban</h2>
+        <p>Daftar cerita yang ditampilkan di section "Cerita yang Jarang Kita Dengar".</p>
+      </div>
+      <div class="panel-actions">
+        <button class="btn btn--primary btn--sm" id="addStory">+ Tambah Cerita</button>
+        <button class="btn btn--ghost btn--sm" id="resetStories">↺ Reset Default</button>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="storySearch" placeholder="🔍 Cari nama, cerita, atau tag...">
+      <select id="storyFilter">
+        <option value="all">Semua Kategori</option>
+        <option value="anak">Anak &amp; Pelajar</option>
+        <option value="remaja">Remaja</option>
+        <option value="cyber">Dunia Maya</option>
+        <option value="kerja">Dunia Kerja</option>
+      </select>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Korban</th>
+            <th>Kategori</th>
+            <th>Isi Cerita</th>
+            <th>Tag</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="storyTbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============================================================
+     MODAL EDIT
+     ============================================================ -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal" id="modalContent">
+    <!-- Diisi oleh JS -->
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span id="toastIcon">✓</span><span id="toastText">Tersimpan</span>
+</div>
+
+<script>
+/* ============================================================
+   KONFIGURASI — kunci localStorage sama dengan index.html
+   ============================================================ */
+const KEY_HOPE    = 'ltk_hope_messages';
+const KEY_STORIES = 'ltk_stories';
+
+/* ============================================================
+   UTIL
+   ============================================================ */
+const $  = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => Array.from(el.querySelectorAll(s));
+
+function escapeHtml(str) {
+  return String(str ?? '')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+}
+
+function load(key, fallback = []) {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? JSON.parse(raw) : fallback;
+  } catch { return fallback; }
+}
+function save(key, val) {
+  try { localStorage.setItem(key, JSON.stringify(val)); return true; }
+  catch { return false; }
+}
+function uid(prefix = 'id') {
+  return prefix + '_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
+}
+
+let toastTimer;
+function toast(text, type = 'ok') {
+  const el = $('#toast');
+  $('#toastIcon').textContent = type === 'ok' ? '✓' : '!';
+  $('#toastText').textContent = text;
+  el.className = 'toast show ' + (type === 'ok' ? 'toast--ok' : 'toast--err');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2400);
+}
+
+/* ============================================================
+   DATA DEFAULT
+   ============================================================ */
+const DEFAULT_STORIES = [
+  { id:'s1', name:'"A"',   age:'11 tahun · SD',      cat:'anak',   avatar:'a1', text:'"Setiap hari tas saya disembunyikan. Saya bilang ke guru, tapi kata guru \'itu cuma becanda, kamu jangan cengeng\'. Akhirnya saya diam. Sampai sekarang saya masih takut kalau ada orang tertawa di belakang saya."', tag:'Perundungan verbal & fisik' },
+  { id:'s2', name:'"R"',   age:'15 tahun · SMP',     cat:'remaja', avatar:'a2', text:'"Saya dikucilkan selama satu tahun. Tidak ada yang mau duduk di sebelah saya. Kalau ada kerja kelompok, saya selalu jadi yang terakhir dipilih. Saya mulai berpikir mungkin memang ada yang salah dengan diri saya."', tag:'Perundungan sosial' },
+  { id:'s3', name:'"N"',   age:'16 tahun · SMA',     cat:'cyber',  avatar:'a3', text:'"Foto saya diedit dan disebar ke grup kelas. Ada ratusan komentar. Saya hapus akun, ganti nomor, tapi screenshot-nya tetap ada di internet. Rasanya seperti tidak ada tempat untuk bersembunyi."', tag:'Perundungan dunia maya' },
+  { id:'s4', name:'"D"',   age:'12 tahun · SD',      cat:'anak',   avatar:'a4', text:'"Kata mereka saya terlalu gemuk. Saya berhenti makan siang di sekolah. Ibu saya tidak tahu sampai berat badan saya turun banyak. Saya hanya ingin tidak ada yang melihat saya."', tag:'Perundungan verbal' },
+  { id:'s5', name:'"F"',   age:'17 tahun · SMA',     cat:'remaja', avatar:'a1', text:'"Saya dulunya pelaku. Saya pikir itu lucu karena semua orang tertawa. Baru setelah dia pindah sekolah, saya sadar. Saya menghancurkan seseorang hanya untuk terlihat keren. Saya minta maaf, tapi luka itu sudah ada."', tag:'Perspektif pelaku' },
+  { id:'s6', name:'"S"',   age:'24 tahun · Pekerja', cat:'kerja',  avatar:'a2', text:'"Perundungan tidak berhenti di sekolah. Di kantor, saya direndahkan terus di depan tim, hasil kerja saya diakui orang lain. Saya takut melapor karena butuh pekerjaan ini."', tag:'Perundungan di tempat kerja' }
+];
+
+const DEFAULT_HOPE = [
+  { id:'d1', name:'Anonim',  text:'Untuk kamu yang sedang bertahan: kamu lebih kuat dari yang kamu kira. Tolong tetap di sini.', time:'Baru saja', type:'default', pinned:false },
+  { id:'d2', name:'Dinda',   text:'Aku pernah jadi korban. Sekarang aku jadi guru BK supaya tidak ada lagi anak yang merasa sendirian.', time:'2 jam lalu', type:'default', pinned:false },
+  { id:'d3', name:'Rafi',    text:'Aku berjanji tidak akan diam lagi kalau melihat temanku dirundung. Mulai hari ini.', time:'5 jam lalu', type:'default', pinned:false },
+  { id:'d4', name:'Bu Sari', text:'Sebagai guru, saya minta maaf untuk setiap laporan yang dulu saya anggap remeh. Saya berubah.', time:'1 hari lalu', type:'default', pinned:false },
+  { id:'d5', name:'Anonim',  text:'Kamu tidak lemah. Kamu hanya sedang berjuang dengan hal yang tidak terlihat orang lain.', time:'2 hari lalu', type:'default', pinned:false }
+];
+
+/* ============================================================
+   STATE
+   ============================================================ */
+let hopeData    = [];
+let storiesData = [];
+
+/* ============================================================
+   INISIALISASI
+   ============================================================ */
+function init() {
+  // Cerita
+  storiesData = load(KEY_STORIES, null);
+  if (!storiesData || !Array.isArray(storiesData) || storiesData.length === 0) {
+    storiesData = JSON.parse(JSON.stringify(DEFAULT_STORIES));
+    save(KEY_STORIES, storiesData);
+  }
+
+  // Pesan dinding
+  hopeData = load(KEY_HOPE, null);
+  if (!hopeData || !Array.isArray(hopeData) || hopeData.length === 0) {
+    hopeData = JSON.parse(JSON.stringify(DEFAULT_HOPE));
+    save(KEY_HOPE, hopeData);
+  }
+
+  renderStats();
+  renderMessages();
+  renderStories();
+}
+
+/* ============================================================
+   STATISTIK
+   ============================================================ */
+function renderStats() {
+  const userMsgs = hopeData.filter(m => m.type === 'user').length;
+  const pinned   = hopeData.filter(m => m.pinned).length;
+
+  $('#statUserMsg').textContent = userMsgs;
+  $('#statStories').textContent = storiesData.length;
+  $('#statPinned').textContent  = pinned;
+
+  let bytes = 0;
+  try {
+    bytes = (localStorage.getItem(KEY_HOPE) || '').length +
+            (localStorage.getItem(KEY_STORIES) || '').length;
+  } catch {}
+  const kb = (bytes / 1024).toFixed(1);
+  $('#statSize').textContent = kb + ' KB';
+}
+
+/* ============================================================
+   TAB NAVIGASI
+   ============================================================ */
+$$('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    $$('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    $$('.panel').forEach(p => p.classList.remove('active'));
+    $('#panel-' + tab.dataset.panel).classList.add('active');
+  });
+});
+
+/* ============================================================
+   TABEL PESAN DINDING HARAPAN
+   ============================================================ */
+const msgTbody = $('#msgTbody');
+
+function renderMessages() {
+  const q      = $('#msgSearch').value.trim().toLowerCase();
+  const filter = $('#msgFilter').value;
+
+  let list = [...hopeData];
+
+  if (filter === 'user')    list = list.filter(m => m.type === 'user');
+  if (filter === 'default') list = list.filter(m => m.type === 'default');
+  if (filter === 'pinned')  list = list.filter(m => m.pinned);
+
+  if (q) list = list.filter(m =>
+    (m.name || '').toLowerCase().includes(q) ||
+    (m.text || '').toLowerCase().includes(q)
+  );
+
+  // Pinned di atas
+  list.sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0));
+
+  if (list.length === 0) {
+    msgTbody.innerHTML = `
+      <tr><td colspan="6">
+        <div class="empty">
+          <div class="empty__icon">💬</div>
+          <h4>Tidak ada pesan</h4>
+          <p>Belum ada pesan yang cocok dengan filter atau pencarianmu.</p>
+        </div>
+      </td></tr>`;
+    return;
+  }
+
+  msgTbody.innerHTML = list.map((m, i) => {
+    const initial = (m.name || 'A').trim().charAt(0).toUpperCase();
+    const isUser  = m.type === 'user';
+    const typeBadge = isUser
+      ? '<span class="badge badge--teal">Pengunjung</span>'
+      : '<span class="badge badge--purple">Bawaan</span>';
+    const pinBadge = m.pinned
+      ? ' <span class="badge badge--amber">📌 Disematkan</span>' : '';
+
+    return `
+      <tr class="${m.pinned ? 'pinned' : ''}" data-id="${escapeHtml(m.id)}">
+        <td class="td-num">${i + 1}</td>
+        <td>
+          <div class="td-avatar">
+            <div class="avatar">${escapeHtml(initial)}</div>
+            <div>
+              <div class="td-name">${escapeHtml(m.name || 'Anonim')}</div>
+              <div class="td-meta">${typeBadge}${pinBadge}</div>
+            </div>
+          </div>
+        </td>
+        <td class="td-text">${escapeHtml(m.text || '')}</td>
+        <td>${typeBadge}</td>
+        <td class="td-meta">${escapeHtml(m.time || '-')}</td>
+        <td>
+          <div class="td-actions">
+            <button class="btn btn--ghost btn--icon" title="${m.pinned ? 'Lepas semat' : 'Sematkan'}"
+              onclick="togglePin('${escapeHtml(m.id)}')">${m.pinned ? '📌' : '📍'}</button>
+            <button class="btn btn--ghost btn--icon" title="Edit"
+              onclick="editMsg('${escapeHtml(m.id)}')">✏️</button>
+            <button class="btn btn--danger btn--icon" title="Hapus"
+              onclick="delMsg('${escapeHtml(m.id)}')">🗑️</button>
+          </div>
+        </td>
+      </tr>`;
+  }).join('');
+}
+
+$('#msgSearch').addEventListener('input', renderMessages);
+$('#msgFilter').addEventListener('change', renderMessages);
+
+/* ============================================================
+   AKSI PESAN
+   ============================================================ */
+function togglePin(id) {
+  const idx = hopeData.findIndex(m => m.id === id);
+  if (idx < 0) return;
+  hopeData[idx].pinned = !hopeData[idx].pinned;
+  save(KEY_HOPE, hopeData);
+  renderMessages();
+  renderStats();
+  toast(hopeData[idx].pinned ? 'Pesan disematkan' : 'Semat dilepas');
+}
+
+function delMsg(id) {
+  if (!confirm('Hapus pesan ini secara permanen?')) return;
+  hopeData = hopeData.filter(m => m.id !== id);
+  save(KEY_HOPE, hopeData);
+  renderMessages();
+  renderStats();
+  toast('Pesan dihapus', 'err');
+}
+
+function editMsg(id) {
+  const idx = hopeData.findIndex(m => m.id === id);
+  if (idx < 0) return;
+  const m = hopeData[idx];
+
+  openModal({
+    title: 'Edit Pesan',
+    fields: [
+      { name: 'name', label: 'Nama Pengirim',  value: m.name,  type: 'text', maxlength: 30 },
+      { name: 'text', label: 'Isi Pesan',      value: m.text,  type: 'textarea', maxlength: 280 },
+      { name: 'time', label: 'Waktu (label)',  value: m.time,  type: 'text', maxlength: 20 }
+    ],
+    onSubmit: (values) => {
+      hopeData[idx] = { ...m, ...values };
+      save(KEY_HOPE, hopeData);
+      renderMessages();
+      toast('Pesan diperbarui');
+    }
+  });
+}
+
+function addMsg() {
+  openModal({
+    title: 'Tambah Pesan Baru',
+    fields: [
+      { name: 'name', label: 'Nama Pengirim', value: 'Anonim', type: 'text', maxlength: 30 },
+      { name: 'text', label: 'Isi Pesan',     value: '',       type: 'textarea', maxlength: 280 },
+      { name: 'time', label: 'Waktu (label)', value: 'Baru saja', type: 'text', maxlength: 20 }
+    ],
+    onSubmit: (values) => {
+      hopeData.unshift({
+        id: uid('h'),
+        name: values.name || 'Anonim',
+        text: values.text,
+        time: values.time || 'Baru saja',
+        type: 'user',
+        pinned: false
+      });
+      save(KEY_HOPE, hopeData);
+      renderMessages();
+      renderStats();
+      toast('Pesan baru ditambahkan');
+    }
+  });
+}
+
+$('#addMsg').addEventListener('click', addMsg);
+
+$('#clearUserMsg').addEventListener('click', () => {
+  const count = hopeData.filter(m => m.type === 'user').length;
+  if (count === 0) return toast('Tidak ada pesan pengunjung', 'err');
+  if (!confirm(`Hapus ${count} pesan dari pengunjung? Pesan bawaan tetap aman.`)) return;
+
+  hopeData = hopeData.filter(m => m.type !== 'user');
+  save(KEY_HOPE, hopeData);
+  renderMessages();
+  renderStats();
+  toast(`${count} pesan pengunjung dihapus`, 'err');
+});
+
+/* ============================================================
+   TABEL CERITA KORBAN
+   ============================================================ */
+const storyTbody = $('#storyTbody');
+
+const CAT_LABEL = {
+  anak:   'Anak & Pelajar',
+  remaja: 'Remaja',
+  cyber:  'Dunia Maya',
+  kerja:  'Dunia Kerja'
+};
+const CAT_BADGE = {
+  anak:   'badge--purple',
+  remaja: 'badge--teal',
+  cyber:  'badge--red',
+  kerja:  'badge--amber'
+};
+
+function renderStories() {
+  const q      = $('#storySearch').value.trim().toLowerCase();
+  const filter = $('#storyFilter').value;
+
+  let list = storiesData.map((s, i) => ({ ...s, _idx: i }));
+
+  if (filter !== 'all') list = list.filter(s => s.cat === filter);
+
+  if (q) list = list.filter(s =>
+    (s.name || '').toLowerCase().includes(q) ||
+    (s.text || '').toLowerCase().includes(q) ||
+    (s.tag  || '').toLowerCase().includes(q)
+  );
+
+  if (list.length === 0) {
+    storyTbody.innerHTML = `
+      <tr><td colspan="6">
+        <div class="empty">
+          <div class="empty__icon">📖</div>
+          <h4>Tidak ada cerita</h4>
+          <p>Belum ada cerita yang cocok dengan filter atau pencarianmu.</p>
+        </div>
+      </td></tr>`;
+    return;
+  }
+
+  storyTbody.innerHTML = list.map((s, i) => `
+    <tr data-idx="${s._idx}">
+      <td class="td-num">${i + 1}</td>
+      <td>
+        <div class="td-avatar">
+          <div class="avatar ${escapeHtml(s.avatar || 'a1')}">${escapeHtml((s.name || 'A').replace(/\W/g, '').charAt(0) || 'A')}</div>
+          <div>
+            <div class="td-name">${escapeHtml(s.name || 'Anonim')}</div>
+            <div class="td-meta">${escapeHtml(s.age || '-')}</div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <span class="badge ${CAT_BADGE[s.cat] || 'badge--purple'}">
+          ${escapeHtml(CAT_LABEL[s.cat] || s.cat)}
+        </span>
+      </td>
+      <td class="td-text">${escapeHtml(s.text || '')}</td>
+      <td><span class="badge badge--purple">${escapeHtml(s.tag || '-')}</span></td>
+      <td>
+        <div class="td-actions">
+          <button class="btn btn--ghost btn--icon" title="Edit"
+            onclick="editStory(${s._idx})">✏️</button>
+          <button class="btn btn--danger btn--icon" title="Hapus"
+            onclick="delStory(${s._idx})">🗑️</button>
+        </div>
+      </td>
+    </tr>
+  `).join('');
+}
+
+$('#storySearch').addEventListener('input', renderStories);
+$('#storyFilter').addEventListener('change', renderStories);
+
+/* ============================================================
+   AKSI CERITA
+   ============================================================ */
+function delStory(idx) {
+  if (!confirm('Hapus cerita ini secara permanen?')) return;
+  storiesData.splice(idx, 1);
+  save(KEY_STORIES, storiesData);
+  renderStories();
+  renderStats();
+  toast('Cerita dihapus', 'err');
+}
+
+function editStory(idx) {
+  const s = storiesData[idx];
+  if (!s) return;
+
+  openModal({
+    title: 'Edit Cerita Korban',
+    fields: [
+      { name: 'name', label: 'Nama / Inisial',  value: s.name, type: 'text', maxlength: 40 },
+      { name: 'age',  label: 'Usia / Keterangan', value: s.age, type: 'text', maxlength: 40 },
+      { name: 'cat',  label: 'Kategori', value: s.cat, type: 'select',
+        options: [
+          { value: 'anak',   label: 'Anak & Pelajar' },
+          { value: 'remaja', label: 'Remaja' },
+          { value: 'cyber',  label: 'Dunia Maya' },
+          { value: 'kerja',  label: 'Dunia Kerja' }
+        ]
+      },
+      { name: 'avatar', label: 'Warna Avatar', value: s.avatar, type: 'select',
+        options: [
+          { value: 'a1', label: 'Ungu' },
+          { value: 'a2', label: 'Merah' },
+          { value: 'a3', label: 'Hijau' },
+          { value: 'a4', label: 'Kuning' }
+        ]
+      },
+      { name: 'text', label: 'Isi Cerita', value: s.text, type: 'textarea', maxlength: 500 },
+      { name: 'tag',  label: 'Label / Tag', value: s.tag, type: 'text', maxlength: 60 }
+    ],
+    onSubmit: (values) => {
+      storiesData[idx] = { ...s, ...values };
+      save(KEY_STORIES, storiesData);
+      renderStories();
+      toast('Cerita diperbarui');
+    }
+  });
+}
+
+$('#addStory').addEventListener('click', () => {
+  openModal({
+    title: 'Tambah Cerita Baru',
+    fields: [
+      { name: 'name', label: 'Nama / Inisial', value: 'Anonim', type: 'text', maxlength: 40 },
+      { name: 'age',  label: 'Usia / Keterangan', value: '', type: 'text', maxlength: 40 },
+      { name: 'cat',  label: 'Kategori', value: 'remaja', type: 'select',
+        options: [
+          { value: 'anak',   label: 'Anak & Pelajar' },
+          { value: 'remaja', label: 'Remaja' },
+          { value: 'cyber',  label: 'Dunia Maya' },
+          { value: 'kerja',  label: 'Dunia Kerja' }
+        ]
+      },
+      { name: 'avatar', label: 'Warna Avatar', value: 'a1', type: 'select',
+        options: [
+          { value: 'a1', label: 'Ungu' },
+          { value: 'a2', label: 'Merah' },
+          { value: 'a3', label: 'Hijau' },
+          { value: 'a4', label: 'Kuning' }
+        ]
+      },
+      { name: 'text', label: 'Isi Cerita', value: '', type: 'textarea', maxlength: 500 },
+      { name: 'tag',  label: 'Label / Tag', value: 'Perundungan', type: 'text', maxlength: 60 }
+    ],
+    onSubmit: (values) => {
+      storiesData.push({
+        id: uid('s'),
+        ...values
+      });
+      save(KEY_STORIES, storiesData);
+      renderStories();
+      renderStats();
+      toast('Cerita baru ditambahkan');
+    }
+  });
+});
+
+$('#resetStories').addEventListener('click', () => {
+  if (!confirm('Semua cerita akan dikembalikan ke versi awal. Lanjutkan?')) return;
+  storiesData = JSON.parse(JSON.stringify(DEFAULT_STORIES));
+  save(KEY_STORIES, storiesData);
+  renderStories();
+  renderStats();
+  toast('Cerita dikembalikan ke default');
+});
+
+/* ============================================================
+   MODAL GENERIK
+   ============================================================ */
+const modalBg = $('#modalBg');
+const modalContent = $('#modalContent');
+let currentSubmit = null;
+
+function openModal({ title, fields, onSubmit }) {
+  currentSubmit = onSubmit;
+
+  modalContent.innerHTML = `
+    <h3>${escapeHtml(title)}</h3>
+    <form id="modalForm">
+      ${fields.map(f => {
+        if (f.type === 'textarea') {
+          return `<div class="field">
+            <label>${escapeHtml(f.label)}</label>
+            <textarea name="${escapeHtml(f.name)}" maxlength="${f.maxlength || 500}">${escapeHtml(f.value || '')}</textarea>
+          </div>`;
+        }
+        if (f.type === 'select') {
+          return `<div class="field">
+            <label>${escapeHtml(f.label)}</label>
+            <select name="${escapeHtml(f.name)}">
+              ${(f.options || []).map(o =>
+                `<option value="${escapeHtml(o.value)}" ${o.value === f.value ? 'selected' : ''}>${escapeHtml(o.label)}</option>`
+              ).join('')}
+            </select>
+          </div>`;
+        }
+        return `<div class="field">
+          <label>${escapeHtml(f.label)}</label>
+          <input type="${f.type || 'text'}" name="${escapeHtml(f.name)}"
+            value="${escapeHtml(f.value || '')}"
+            ${f.maxlength ? `maxlength="${f.maxlength}"` : ''}>
+        </div>`;
+      }).join('')}
+      <div class="modal__actions">
+        <button type="button" class="btn btn--ghost" id="modalCancel">Batal</button>
+        <button type="submit" class="btn btn--primary">Simpan</button>
+      </div>
+    </form>
+  `;
+
+  modalBg.classList.add('show');
+
+  $('#modalCancel').addEventListener('click', closeModal);
+
+  $('#modalForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const values = {};
+    for (const [k, v] of formData.entries()) {
+      values[k] = typeof v === 'string' ? v.trim() : v;
+    }
+    currentSubmit && currentSubmit(values);
+    closeModal();
+  });
+
+  // Focus ke field pertama
+  setTimeout(() => modalContent.querySelector('input, textarea, select')?.focus(), 60);
+}
+
+function closeModal() {
+  modalBg.classList.remove('show');
+  currentSubmit = null;
+}
+
+// Klik backdrop menutup modal
+modalBg.addEventListener('click', (e) => {
+  if (e.target === modalBg) closeModal();
+});
+// Esc menutup modal
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modalBg.classList.contains('show')) closeModal();
+});
+
+/* ============================================================
+   START
+   ============================================================ */
+init();
+</script>
+
+</body>
+</html>

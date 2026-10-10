@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LindungiTemanKecil — Bersama Hentikan Perundungan</title>
+<meta name="description" content="LindungiTemanKecil: kampanye edukasi dan kepedulian untuk menghentikan perundungan (bullying) di sekolah, rumah, dan dunia maya.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER / NAVBAR
+     ============================================================ -->
+<header class="header" id="header">
+  <nav class="container nav">
+    <a href="#beranda" class="logo">
+      <span class="logo__mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+      </span>
+      <span class="logo__text">Lindungi<span>TemanKecil</span></span>
+    </a>
+
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#tentang">Apa Itu</a></li>
+      <li><a href="#jenis">Jenis</a></li>
+      <li><a href="#dampak">Dampak</a></li>
+      <li><a href="#korban">Cerita</a></li>
+      <li><a href="#edukasi">Edukasi</a></li>
+      <li><a href="#kuis">Kuis</a></li>
+      <li><a href="#bantuan">Bantuan</a></li>
+      <li><a href="#bantuan" class="btn  nav-cta">Butuh Bantuan?</a></li>
+    </ul>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="beranda">
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <div class="hero__badge">
+        <span class="pulse-dot"></span>
+        Kampanye Peduli Perundungan Indonesia
+      </div>
+
+      <h1>Jangan Diam.<br>Suara Kita <em>Menyelamatkan</em> Mereka.</h1>
+
+      <p class="hero__lead">
+        Perundungan bukan sekadar "bercanda" atau "bagian dari tumbuh dewasa".
+        Ia melukai, meninggalkan luka yang tak terlihat, dan kadang merenggut nyawa.
+        Saatnya kita berhenti menonton — dan mulai bertindak.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#edukasi" class="btn btn--primary">Mulai Belajar →</a>
+        <a href="#bantuan" class="btn btn--ghost">Saya Butuh Bantuan</a>
+      </div>
+
+      <div class="hero__stats">
+        <div class="hero__stat"><b>1 dari 3</b><span>Pelajar pernah dirundung</span></div>
+        <div class="hero__stat"><b>41%</b><span>Kasus terjadi di sekolah</span></div>
+        <div class="hero__stat"><b>24 Jam</b><span>Dampak berlanjut seumur hidup</span></div>
+      </div>
+    </div>
+
+    <div class="hero__visual">
+      <div class="hero-card">
+        <p class="hero-card__title">Yang sering mereka ucapkan</p>
+
+        <div class="avatar-row">
+          <div class="avatar a1">R</div>
+          <p>"Cuma bercanda kok, kamu terlalu sensitif."<small>— Pelaku, 14 tahun</small></p>
+        </div>
+        <div class="avatar-row">
+          <div class="avatar a2">A</div>
+          <p>"Aku takut ke sekolah. Tapi tidak ada yang percaya."<small>— Korban, 13 tahun</small></p>
+        </div>
+        <div class="avatar-row">
+          <div class="avatar a3">S</div>
+          <p>"Aku lihat, tapi aku diam saja. Sampai sekarang aku menyesal."<small>— Saksi, 15 tahun</small></p>
+        </div>
+        <div class="avatar-row">
+          <div class="avatar a4">M</div>
+          <p>"Kalau ada yang membela, mungkin hidupku berbeda."<small>— Penyintas, 22 tahun</small></p>
+        </div>
+
+        <div class="hero-card__note">
+          <strong>Ingat:</strong> Diamnya saksi adalah kemenangan bagi pelaku.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATISTIK
+     ============================================================ -->
+<section class="stats">
+  <div class="container">
+    <div class="stats__grid">
+      <div class="stat-item reveal">
+        <div class="stat-item__num"><span data-count="36">0</span><sup>%</sup></div>
+        <div class="stat-item__label">Pelajar melaporkan pernah mengalami perundungan</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-item__num"><span data-count="15">0</span><sup>%</sup></div>
+        <div class="stat-item__label">Terjadi di dunia maya (cyberbullying)</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-item__num"><span data-count="70">0</span><sup>%</sup></div>
+        <div class="stat-item__label">Kasus tidak dilaporkan ke orang dewasa</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-item__num"><span data-count="3">0</span><sup>x</sup></div>
+        <div class="stat-item__label">Risiko depresi lebih tinggi pada korban</div>
+      </div>
+    </div>
+    <p class="stats__source">
+      *Angka merupakan gambaran umum dari berbagai studi dan survei perundungan remaja.
+      Data aktual dapat berbeda tergantung wilayah dan metodologi penelitian.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     APA ITU PERUNDUNGAN
+     ============================================================ -->
+<section class="section" id="tentang">
+  <div class="container">
+    <div class="about__grid">
+      <div class="reveal">
+        <div class="about__quote">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 5C6.5 5 4 7.5 4 10.5S6.5 16 9.5 16c.4 0 .8 0 1.2-.1-.6 1.6-2 2.9-3.7 3.4l.6 1.7c3.4-1 5.9-4 5.9-7.9V10.5C13.5 7.5 12.5 5 9.5 5zm10 0C16.5 5 14 7.5 14 10.5S16.5 16 19.5 16c.4 0 .8 0 1.2-.1-.6 1.6-2 2.9-3.7 3.4l.6 1.7c3.4-1 5.9-4 5.9-7.9V10.5C23.5 7.5 22.5 5 19.5 5z"/></svg>
+          <p>"Luka karena kata-kata sering lebih dalam daripada luka karena pukulan. Karena ia terus terngiang, bahkan setelah pelakunya lupa."</p>
+          <cite>— LindungiTemanKecil</cite>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <span class="eyebrow">Definisi</span>
+        <h2 class="section-title">Apa Itu <span class="gradient-text">Perundungan?</span></h2>
+
+        <div class="definition">
+          <b>Perundungan (bullying)</b> adalah tindakan menyakiti, mengintimidasi, atau menindas
+          yang dilakukan secara <b>sengaja</b>, <b>berulang-ulang</b>, dan melibatkan
+          <b>ketidakseimbangan kekuatan</b> — baik fisik, sosial, maupun psikologis.
+        </div>
+
+        <p class="section-sub">
+          Perbedaan kunci antara konflik biasa dan perundungan terletak pada tiga hal:
+          niat menyakiti, pengulangan, dan ketimpangan kuasa. Tanpa ketiganya, sebuah
+          pertengkaran belum tentu disebut perundungan.
+        </p>
+
+        <ul class="about__list">
+          <li><span class="check">✓</span><span><strong>Disengaja</strong> — pelaku tahu tindakannya menyakiti dan tetap melakukannya.</span></li>
+          <li><span class="check">✓</span><span><strong>Berulang</strong> — terjadi lebih dari sekali, menciptakan pola dan rasa terancam terus-menerus.</span></li>
+          <li><span class="check">✓</span><span><strong>Tidak seimbang</strong> — korban sulit membela diri karena kalah jumlah, kuasa, atau status.</span></li>
+          <li><span class="check">✓</span><span><strong>Menyakitkan</strong> — dampaknya nyata, meski tidak selalu terlihat dari luar.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     JENIS PERUNDUNGAN
+     ============================================================ -->
+<section class="section section--soft" id="jenis">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">Kenali Bentuknya</span>
+      <h2 class="section-title">Enam Wajah Perundungan</h2>
+      <p class="section-sub">
+        Perundungan tidak selalu berupa pukulan. Ia bisa bersembunyi dalam bisikan,
+        tatapan, kiriman pesan, bahkan tawa bersama.
+      </p>
+    </div>
+
+    <div class="types__grid">
+      <article class="type-card reveal">
+        <div class="type-card__icon tc-1">🗣️</div>
+        <h3>Perundungan Verbal</h3>
+        <p>Menghina, mengejek nama, mencela fisik, mengancam, atau meneriaki. Kata-kata yang terus diulang bisa merusak harga diri seseorang secara permanen.</p>
+        <span class="type-card__tag">Paling Sering</span>
+      </article>
+
+      <article class="type-card reveal">
+        <div class="type-card__icon tc-2">✊</div>
+        <h3>Perundungan Fisik</h3>
+        <p>Memukul, menendang, mendorong, merusak barang, atau memeras uang. Ini bentuk yang paling mudah terlihat — tapi sering dianggap "kenakalan biasa".</p>
+        <span class="type-card__tag">Paling Terlihat</span>
+      </article>
+
+      <article class="type-card reveal">
+        <div class="type-card__icon tc-3">🚪</div>
+        <h3>Perundungan Sosial</h3>
+        <p>Mengucilkan, menyebar gosip, mengajak orang lain untuk memusuhi, atau sengaja tidak mengajak seseorang dalam kegiatan kelompok.</p>
+        <span class="type-card__tag">Tak Terlihat</span>
+      </article>
+
+      <article class="type-card reveal">
+        <div class="type-card__icon tc-4">📱</div>
+        <h3>Perundungan Dunia Maya</h3>
+        <p>Menghina lewat komentar, menyebar foto tanpa izin, membuat akun palsu, atau mengirim pesan ancaman. Jejak digital membuat luka ini tak pernah berhenti.</p>
+        <span class="type-card__tag">24/7</span>
+      </article>
+
+      <article class="type-card reveal">
+        <div class="type-card__icon tc-5">💸</div>
+        <h3>Perundungan Ekonomi</h3>
+        <p>Meminta uang dengan paksa, merusak barang milik orang lain, atau mengucilkan karena kondisi ekonomi keluarga.</p>
+        <span class="type-card__tag">Sering Terabaikan</span>
+      </article>
+
+      <article class="type-card reveal">
+        <div class="type-card__icon tc-6">🚫</div>
+        <h3>Perundungan Seksual</h3>
+        <p>Komentar bernuansa seksual, menyentuh tanpa izin, menyebar rumor tentang tubuh, atau memaksa melihat konten yang tidak pantas.</p>
+        <span class="type-card__tag">Serius</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DAMPAK
+     ============================================================ -->
+<section class="section" id="dampak">
+  <div class="container">
+    <div class="impact__grid">
+      <div class="reveal">
+        <div class="impact__visual">
+          <div class="impact-bar">
+            <div class="impact-bar__top"><span>Rasa cemas & takut berlebihan</span><span>82%</span></div>
+            <div class="impact-bar__track"><div class="impact-bar__fill" data-width="82"></div></div>
+          </div>
+          <div class="impact-bar">
+            <div class="impact-bar__top"><span>Penurunan prestasi belajar</span><span>74%</span></div>
+            <div class="impact-bar__track"><div class="impact-bar__fill" data-width="74"></div></div>
+          </div>
+          <div class="impact-bar">
+            <div class="impact-bar__top"><span>Menarik diri dari pergaulan</span><span>68%</span></div>
+            <div class="impact-bar__track"><div class="impact-bar__fill" data-width="68"></div></div>
+          </div>
+          <div class="impact-bar">
+            <div class="impact-bar__top"><span>Gangguan tidur & makan</span><span>61%</span></div>
+            <div class="impact-bar__track"><div class="impact-bar__fill" data-width="61"></div></div>
+          </div>
+          <div class="impact-bar">
+            <div class="impact-bar__top"><span>Pikiran untuk mengakhiri hidup</span><span>29%</span></div>
+            <div class="impact-bar__track"><div class="impact-bar__fill" data-width="29"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <span class="eyebrow">Konsekuensi</span>
+        <h2 class="section-title">Luka yang Tidak Selalu Terlihat</h2>
+        <p class="section-sub" style="margin-bottom:34px;">
+          Perundungan tidak berhenti saat bel sekolah berbunyi. Ia ikut pulang,
+          terbawa ke kamar, dan kadang bertahan hingga puluhan tahun kemudian.
+        </p>
+
+        <div class="impact-list">
+          <div class="impact-item">
+            <div class="impact-item__icon">🧠</div>
+            <div>
+              <h4>Dampak Psikologis</h4>
+              <p>Depresi, kecemasan, rasa rendah diri, trauma, hingga gangguan stres pasca-trauma.</p>
+            </div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-item__icon">📉</div>
+            <div>
+              <h4>Dampak Akademik</h4>
+              <p>Nilai turun, malas ke sekolah, kehilangan konsentrasi, hingga putus sekolah.</p>
+            </div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-item__icon">🤝</div>
+            <div>
+              <h4>Dampak Sosial</h4>
+              <p>Sulit mempercayai orang lain, menarik diri, dan kesulitan membangun relasi sehat.</p>
+            </div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-item__icon">🩺</div>
+            <div>
+              <h4>Dampak Fisik</h4>
+              <p>Sakit kepala, gangguan pencernaan, insomnia, dan keluhan fisik akibat stres berkepanjangan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CERITA KORBAN
+     ============================================================ -->
+<section class="section stories" id="korban">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">Mereka Bersuara</span>
+      <h2 class="section-title">Cerita yang Jarang Kita Dengar</h2>
+      <p class="section-sub">
+        Di balik setiap angka, ada nama, ada wajah, dan ada mimpi yang terganggu.
+        Berikut kisah-kisah yang dibagikan — sebagian anonim, sebagian disusun ulang
+        untuk melindungi identitas.
+      </p>
+    </div>
+
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">Semua</button>
+      <button class="filter-btn" data-filter="anak">Anak & Pelajar</button>
+      <button class="filter-btn" data-filter="remaja">Remaja</button>
+      <button class="filter-btn" data-filter="cyber">Dunia Maya</button>
+      <button class="filter-btn" data-filter="kerja">Dunia Kerja</button>
+    </div>
+
+    <div class="stories__grid" id="storiesGrid">
+
+      <article class="story-card reveal" data-cat="anak">
+        <div class="story-card__head">
+          <div class="avatar a1">A</div>
+          <div>
+            <h4>"A"</h4>
+            <small>11 tahun · SD</small>
+          </div>
+        </div>
+        <blockquote>
+          "Setiap hari tas saya disembunyikan. Saya bilang ke guru, tapi kata guru
+          'itu cuma becanda, kamu jangan cengeng'. Akhirnya saya diam. Sampai
+          sekarang saya masih takut kalau ada orang tertawa di belakang saya."
+        </blockquote>
+        <div class="story-card__foot"><span class="dot"></span> Perundungan verbal & fisik</div>
+      </article>
+
+      <article class="story-card reveal" data-cat="remaja">
+        <div class="story-card__head">
+          <div class="avatar a2">R</div>
+          <div>
+            <h4>"R"</h4>
+            <small>15 tahun · SMP</small>
+          </div>
+        </div>
+        <blockquote>
+          "Saya dikucilkan selama satu tahun. Tidak ada yang mau duduk di sebelah saya.
+          Kalau ada kerja kelompok, saya selalu jadi yang terakhir dipilih. Saya
+          mulai berpikir mungkin memang ada yang salah dengan diri saya."
+        </blockquote>
+        <div class="story-card__foot"><span class="dot"></span> Perundungan sosial</div>
+      </article>
+
+      <article class="story-card reveal" data-cat="cyber">
+        <div class="story-card__head">
+          <div class="avatar a3">N</div>
+          <div>
+            <h4>"N"</h4>
+            <small>16 tahun · SMA</small>
+          </div>
+        </div>
+        <blockquote>
+          "Foto saya diedit dan disebar ke grup kelas. Ada ratusan komentar.
+          Saya hapus akun, ganti nomor, tapi screenshot-nya tetap ada di internet.
+          Rasanya seperti tidak ada tempat untuk bersembunyi."
+        </blockquote>
+        <div class="story-card__foot"><span class="dot"></span> Perundungan dunia maya</div>
+      </article>
+
+      <article class="story-card reveal" data-cat="anak">
+        <div class="story-card__head">
+          <div class="avatar a4">D</div>
+          <div>
+            <h4>"D"</h4>
+            <small>12 tahun · SD</small>
+          </div>
+        </div>
+        <blockquote>
+          "Kata mereka saya terlalu gemuk. Saya berhenti makan siang di sekolah.
+          Ibu saya tidak tahu sampai berat badan saya turun banyak. Saya hanya
+          ingin tidak ada yang melihat saya."
+        </blockquote>
+        <div class="story-card__foot"><span class="dot"></span> Perundungan verbal</div>
+      </article>
+
+      <article class="story-card reveal" data-cat="remaja">
+        <div class="story-card__head">
+          <div class="avatar a1">F</div>
+          <div>
+            <h4>"F"</h4>
+            <small>17 tahun · SMA</small>
+          </div>
+        </div>
+        <blockquote>
+          "Saya dulunya pelaku. Saya pikir itu lucu karena semua orang tertawa.
+          Baru setelah dia pindah sekolah, saya sadar. Saya menghancurkan seseorang
+          hanya untuk terlihat keren. Saya minta maaf, tapi luka itu sudah ada."
+        </blockquote>
+        <div class="story-card__foot"><span class="dot"></span> Perspektif pelaku</div>
+      </article>
+
+      <article class="story-card reveal" data-cat="kerja">
+        <div class="story-card__head">
+          <div class="avatar a2">S</div>
+          <div>
+            <h4>"S"</h4>
+            <small>24 tahun · Pekerja</small>
+          </div>
+        </div>
+        <blockquote>
+          "Perundungan tidak berhenti di sekolah. Di kantor, saya direndahkan terus
+          di depan tim, hasil kerja saya diakui orang lain. Saya takut melapor
+          karena butuh pekerjaan ini."
+        </blockquote>
+        <div class="story-card__foot"><span class="dot"></span> Perundungan di tempat kerja</div>
+      </article>
+
+    </div>
+
+    <p class="stories__disclaimer reveal">
+      <strong>Catatan penting:</strong> Nama, usia, dan detail dalam cerita di atas
+      telah dianonimkan serta sebagian disusun ulang sebagai representasi pengalaman
+      umum korban perundungan. Tujuannya untuk edukasi dan empati, bukan menuduh
+      pihak tertentu. Jika kamu mengalami hal serupa, kamu tidak sendirian —
+      bantuan tersedia di bagian <a href="#bantuan" style="color:#C7BEFF;text-decoration:underline;">Bantuan</a>.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     EDUKASI / AKORDEON
+     ============================================================ -->
+<section class="section section--soft" id="edukasi">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">Panduan Praktis</span>
+      <h2 class="section-title">Apa yang Bisa Kita Lakukan?</h2>
+      <p class="section-sub">
+        Perundungan bisa dihentikan — tapi hanya jika setiap pihak mengambil perannya.
+        Pilih peranmu di bawah ini.
+      </p>
+    </div>
+
+    <div class="accordion" id="accordion">
+
+      <div class="acc-item">
+        <button class="acc-head">
+          <span class="acc-num">01</span>
+          Jika Kamu Korban
+          <span class="acc-arrow">⌄</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-body__inner">
+            Kamu berhak merasa aman. Ini bukan salahmu.
+            <ul>
+              <li><strong>Katakan "berhenti"</strong> dengan tegas bila aman untuk dilakukan, lalu segera menjauh dari situasi.</li>
+              <li><strong>Catat kejadiannya</strong> — tanggal, tempat, siapa yang terlibat, apa yang terjadi. Catatan ini sangat membantu saat melapor.</li>
+              <li><strong>Simpan bukti</strong> untuk kasus digital: screenshot pesan, komentar, atau unggahan sebelum diblokir.</li>
+              <li><strong>Ceritakan ke satu orang dewasa</strong> yang kamu percaya — orang tua, guru BK, wali kelas, atau kakak.</li>
+              <li><strong>Jangan hadapi sendiri.</strong> Cari teman yang bisa menemanimu saat situasi rawan.</li>
+              <li><strong>Jaga kesehatan mentalmu.</strong> Bicara dengan psikolog atau layanan konseling bila pikiran mulai berat.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head">
+          <span class="acc-num">02</span>
+          Jika Kamu Melihat (Saksi)
+          <span class="acc-arrow">⌄</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-body__inner">
+            Saksi adalah kunci. Diammu memperkuat pelaku — suaramu bisa mengubah segalanya.
+            <ul>
+              <li><strong>Jangan ikut tertawa</strong> atau menyebarkan kontennya. Tawa sekecil apa pun adalah bahan bakar.</li>
+              <li><strong>Dekati korban</strong> setelah kejadian. Satu kalimat "kamu baik-baik saja?" bisa sangat berarti.</li>
+              <li><strong>Ajak korban duduk bersamamu</strong> di kelas atau kantin agar ia tidak merasa sendiri.</li>
+              <li><strong>Laporkan ke guru atau orang dewasa.</strong> Ini bukan "mengadu" — ini melindungi.</li>
+              <li><strong>Jangan merekam</strong> untuk konten. Merekam = ikut merundung.</li>
+              <li><strong>Kalau aman, lawan dengan tegas:</strong> "Itu tidak lucu, hentikan."</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head">
+          <span class="acc-num">03</span>
+          Untuk Orang Tua
+          <span class="acc-arrow">⌄</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-body__inner">
+            Anak sering tidak bercerita karena takut disalahkan atau dianggap lemah.
+            <ul>
+              <li><strong>Kenali tanda-tandanya:</strong> enggan ke sekolah, barang sering hilang, nilai turun, sulit tidur, murung, atau tiba-tiba menarik diri.</li>
+              <li><strong>Dengarkan tanpa menghakimi.</strong> Hindari kalimat "kamu sih kurang bergaul" atau "ah, itu cuma main-main".</li>
+              <li><strong>Validasi perasaannya:</strong> "Terima kasih sudah cerita. Ini bukan salahmu."</li>
+              <li><strong>Dokumentasikan</strong> kejadian dan laporkan ke sekolah secara tertulis.</li>
+              <li><strong>Jangan adu fisik atau mendatangi pelaku sendiri.</strong> Ikuti prosedur sekolah dan, bila perlu, pihak berwenang.</li>
+              <li><strong>Pertimbangkan pendampingan psikolog</strong> bila anak menunjukkan tanda trauma.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head">
+          <span class="acc-num">04</span>
+          Untuk Guru & Sekolah
+          <span class="acc-arrow">⌄</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-body__inner">
+            Sekolah adalah tempat paling menentukan apakah perundungan berlanjut atau berhenti.
+            <ul>
+              <li><strong>Jangan anggap remeh laporan.</strong> Setiap laporan harus ditindaklanjuti dan dicatat.</li>
+              <li><strong>Bangun sistem pelaporan anonim</strong> agar siswa berani melapor tanpa takut dibalas.</li>
+              <li><strong>Tangani pelaku dengan pembinaan</strong>, bukan sekadar hukuman — ajarkan empati dan tanggung jawab.</li>
+              <li><strong>Lindungi korban</strong> dari pembalasan, termasuk dengan pengawasan dan perubahan jadwal bila perlu.</li>
+              <li><strong>Libatkan seluruh kelas</strong> dalam sesi anti-perundungan rutin, bukan hanya saat terjadi kasus.</li>
+              <li><strong>Libatkan orang tua</strong> dari kedua pihak secara terpisah dan terstruktur.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-head">
+          <span class="acc-num">05</span>
+          Membangun Budaya Anti-Perundungan
+          <span class="acc-arrow">⌄</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-body__inner">
+            Pencegahan terbaik bukan reaksi, tapi budaya yang dibangun setiap hari.
+            <ul>
+              <li><strong>Rayakan perbedaan</strong> — ajarkan bahwa latar belakang, fisik, dan kemampuan yang beragam adalah kekuatan.</li>
+              <li><strong>Ajarkan empati sejak dini</strong> melalui cerita, diskusi, dan permainan peran.</li>
+              <li><strong>Buat kesepakatan kelas</strong> tentang cara memperlakukan satu sama lain.</li>
+              <li><strong>Beri apresiasi pada kebaikan</strong> — pujilah siswa yang membela temannya, bukan hanya yang berprestasi.</li>
+              <li><strong>Latih siswa menjadi "pembela" (upstander)</strong>, bukan sekadar penonton.</li>
+              <li><strong>Evaluasi iklim sekolah</strong> secara berkala dengan survei anonim.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     KUIS
+     ============================================================ -->
+<section class="section quiz" id="kuis">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">Uji Pemahaman</span>
+      <h2 class="section-title">Seberapa Peduli Kamu?</h2>
+      <p class="section-sub">
+        Lima pertanyaan singkat untuk mengukur pemahamanmu tentang perundungan.
+        Jawab dengan jujur — ini bukan ujian, ini cermin.
+      </p>
+    </div>
+
+    <div class="quiz__box reveal" id="quizBox">
+      <div class="quiz__progress"><span id="quizProgress"></span></div>
+      <div class="quiz__meta">
+        <span id="quizCounter">Pertanyaan 1 / 5</span>
+        <span id="quizScoreLive">Skor: 0</span>
+      </div>
+
+      <div id="quizContent">
+        <p class="quiz__q" id="quizQuestion"></p>
+        <div class="quiz__options" id="quizOptions"></div>
+        <div class="quiz__feedback" id="quizFeedback"></div>
+        <button class="btn btn--primary quiz__next" id="quizNext">Pertanyaan Berikutnya →</button>
+      </div>
+
+      <div class="quiz__result" id="quizResult">
+        <div class="score" id="resultScore">0/5</div>
+        <h3 id="resultTitle"></h3>
+        <p id="resultText"></p>
+        <button class="btn btn--primary" id="quizRestart">Ulangi Kuis</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BANTUAN
+     ============================================================ -->
+<section class="section" id="bantuan">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">Kamu Tidak Sendirian</span>
+      <h2 class="section-title">Layanan Bantuan & Pelaporan</h2>
+      <p class="section-sub">
+        Jika kamu atau seseorang yang kamu kenal mengalami perundungan,
+        jangan ragu menghubungi layanan berikut.
+      </p>
+    </div>
+
+    <div class="help__grid">
+      <div class="help-card reveal">
+        <div class="help-card__icon">☎️</div>
+        <h4>SAPA 129 — Kemen PPPA</h4>
+        <span class="num">129</span>
+        <p>Layanan pengaduan kekerasan terhadap perempuan dan anak. Bisa juga via WhatsApp <strong>08111-129-129</strong>.</p>
+      </div>
+
+      <div class="help-card reveal">
+        <div class="help-card__icon">🛡️</div>
+        <h4>KPAI — Komisi Perlindungan Anak</h4>
+        <span class="num">021-3190-1145</span>
+        <p>Pengaduan kasus pelanggaran hak anak, termasuk perundungan di lingkungan sekolah.</p>
+      </div>
+
+      <div class="help-card reveal">
+        <div class="help-card__icon">🚔</div>
+        <h4>Polisi / Darurat</h4>
+        <span class="num">110</span>
+        <p>Untuk situasi darurat atau ancaman keselamatan yang membutuhkan tindakan segera.</p>
+      </div>
+
+      <div class="help-card reveal">
+        <div class="help-card__icon">💚</div>
+        <h4>Layanan Kesehatan Jiwa</h4>
+        <span class="num">119 ext. 8</span>
+        <p>Pendampingan psikologis untuk krisis emosional, depresi, dan pikiran menyakiti diri.</p>
+      </div>
+    </div>
+
+    <div class="section-head section-head--center reveal" style="margin-top:20px;">
+      <h3 class="section-title" style="font-size:1.6rem;">Langkah Melapor yang Tepat</h3>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step__no">1</div>
+        <h4>Aman Dulu</h4>
+        <p>Pastikan kamu berada di tempat yang aman dan jauh dari pelaku sebelum melakukan apa pun.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step__no">2</div>
+        <h4>Kumpulkan Bukti</h4>
+        <p>Catat tanggal, tempat, dan kejadian. Simpan screenshot, foto, atau nama saksi yang bisa membantu.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step__no">3</div>
+        <h4>Ceritakan</h4>
+        <p>Sampaikan pada orang dewasa yang dipercaya — orang tua, guru BK, atau wali kelas.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step__no">4</div>
+        <h4>Laporkan Resmi</h4>
+        <p>Bila sekolah tidak menindaklanjuti, laporkan ke KPAI, SAPA 129, atau pihak berwenang.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step__no">5</div>
+        <h4>Dampingi & Pulihkan</h4>
+        <p>Korban butuh dukungan berkelanjutan. Ikuti pendampingan psikologis bila diperlukan.</p>
+      </div>
+    </div>
+
+    <p class="stats__source" style="margin-top:36px;">
+      *Nomor layanan dapat berubah sewaktu-waktu. Mohon verifikasi melalui situs resmi
+      instansi terkait sebelum menghubungi.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     DINDING HARAPAN
+     ============================================================ -->
+<section class="section wall" id="harapan">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">Dinding Harapan</span>
+      <h2 class="section-title">Tuliskan Pesanmu</h2>
+      <p class="section-sub">
+        Satu kalimat baikmu bisa menjadi alasan seseorang bertahan hari ini.
+        Tinggalkan pesan dukungan, doa, atau janji untuk tidak diam.
+      </p>
+    </div>
+
+    <div class="wall__layout">
+      <form class="wall-form reveal" id="hopeForm">
+        <div class="field">
+          <label for="hopeName">Nama atau Inisial</label>
+          <input type="text" id="hopeName" placeholder="Contoh: Dinda, atau Anonim" maxlength="30" required>
+        </div>
+        <div class="field">
+          <label for="hopeMessage">Pesanmu</label>
+          <textarea id="hopeMessage" placeholder="Tulis pesan dukungan, harapan, atau janjimu..." maxlength="280" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary" style="width:100%;">Kirim Pesan 💜</button>
+        <p class="form-msg" id="formMsg">✓ Terima kasih! Pesanmu sudah tersimpan di dinding ini.</p>
+      </form>
+
+      <div class="wall__list" id="hopeList">
+        <!-- Pesan awal dimuat oleh JavaScript -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA AKHIR
+     ============================================================ -->
+<section class="cta">
+  <div class="container cta__inner reveal">
+    <h2>Berhenti Menonton. Mulai Bertindak.</h2>
+    <p>
+      Kamu tidak perlu menjadi pahlawan besar untuk menyelamatkan seseorang.
+      Cukup satu kalimat keberanian: <em>"Aku bersamamu."</em>
+    </p>
+    <div class="cta__actions">
+      <a href="#edukasi" class="btn btn--outline">Pelajari Caranya</a>
+      <a href="#harapan" class="btn btn--outline">Tulis Pesan Dukungan</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="logo">
+          <span class="logo__mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </span>
+          <span class="logo__text" style="color:#fff;">Lindungi<span style="color:#A29BFE;">TemanKecil</span></span>
+        </div>
+        <p>
+          Gerakan edukasi dan kepedulian untuk menghentikan perundungan di sekolah,
+          rumah, tempat kerja, dan dunia maya.
+        </p>
+      </div>
+
+      <div>
+        <h5>Navigasi</h5>
+        <ul>
+          <li><a href="#tentang">Apa Itu Perundungan</a></li>
+          <li><a href="#jenis">Jenis Perundungan</a></li>
+          <li><a href="#dampak">Dampak</a></li>
+          <li><a href="#korban">Cerita Korban</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Ambil Tindakan</h5>
+        <ul>
+          <li><a href="#edukasi">Panduan Praktis</a></li>
+          <li><a href="#kuis">Kuis Pemahaman</a></li>
+          <li><a href="#bantuan">Layanan Bantuan</a></li>
+          <li><a href="#harapan">Dinding Harapan</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Darurat</h5>
+        <ul>
+          <li><a href="#bantuan">SAPA 129</a></li>
+          <li><a href="#bantuan">KPAI 021-3190-1145</a></li>
+          <li><a href="#bantuan">Polisi 110</a></li>
+          <li><a href="#bantuan">Kesehatan Jiwa 119 ext. 8</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>© <span id="year"></span> LindungiTemanKecil. Dibuat dengan kepedulian. 💜</p>
+      <p>Jika kamu dalam bahaya, segera hubungi <span class="footer__emergency">110</span> atau <span class="footer__emergency">129</span>.</p>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Kembali ke atas">↑</button>
+
+<script src="../js/script.js"></script>
+
+</body>
+</html>
