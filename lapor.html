@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lapor Kasus - StopBullying</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🛡️</span>
+                <span class="logo-text">Stop<span class="highlight">Bullying</span></span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
+                <li><a href="edukasi.html" class="nav-link">Edukasi</a></li>
+                <li><a href="cerita.html" class="nav-link">Cerita</a></li>
+                <li><a href="bantuan.html" class="nav-link">Bantuan</a></li>
+                <li><a href="lapor.html" class="btn-lapor">Lapor Sekarang</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <span class="page-badge">📝 LAPOR</span>
+            <h1>Laporkan Kasus Bullying</h1>
+            <p>
+                Suaramu penting. Semua laporan bersifat <strong>anonim</strong> dan 
+                <strong>rahasia</strong>. Kami akan meneruskan laporan ini ke pihak berwenang 
+                jika diperlukan.
+            </p>
+        </div>
+    </section>
+
+    <!-- FORM LAPOR -->
+    <section class="section">
+        <div class="container">
+            <div class="form-wrapper">
+                <div class="form-info">
+                    <h3>Sebelum Melapor</h3>
+                    <ul class="info-list">
+                        <li>✅ Identitasmu aman & rahasia</li>
+                        <li>✅ Kamu bisa lapor tanpa login</li>
+                        <li>✅ Semua kolom bertanda * wajib diisi</li>
+                        <li>✅ Untuk darurat, langsung telepon <a href="tel:119">119 ext 8</a></li>
+                    </ul>
+
+                    <div class="info-warning">
+                        <strong>⚠️ Perhatian</strong>
+                        <p>
+                            Jangan gunakan form ini untuk laporan palsu. Laporan palsu 
+                            dapat dikenai sanksi sesuai hukum yang berlaku.
+                        </p>
+                    </div>
+                </div>
+
+                <form class="lapor-form" onsubmit="handleLaporSubmit(event)">
+                    <!-- Data Pelapor -->
+                    <div class="form-section">
+                        <h4 class="form-section-title">📋 Data Pelapor (opsional)</h4>
+                        <p class="form-section-desc">Kosongkan jika kamu ingin tetap anonim.</p>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nama (boleh inisial)</label>
+                                <input type="text" placeholder="Contoh: A atau Anonim">
+                            </div>
+                            <div class="form-group">
+                                <label>Kontak (email/HP)</label>
+                                <input type="text" placeholder="Untuk follow-up (opsional)">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Hubungan dengan korban *</label>
+                            <select required>
+                                <option value="">Pilih...</option>
+                                <option>Korban sendiri</option>
+                                <option>Teman</option>
+                                <option>Kakak/Adik</option>
+                                <option>Orang tua</option>
+                                <option>Guru</option>
+                                <option>Saksi</option>
+                                <option>Lainnya</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Detail Kejadian -->
+                    <div class="form-section">
+                        <h4 class="form-section-title">📌 Detail Kejadian</h4>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Jenis Bullying *</label>
+                                <select required>
+                                    <option value="">Pilih jenis...</option>
+                                    <option>Bullying Fisik</option>
+                                    <option>Bullying Verbal</option>
+                                    <option>Bullying Sosial</option>
+                                    <option>Cyber Bullying</option>
+                                    <option>Bullying Seksual</option>
+                                    <option>Lainnya</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Frekuensi Kejadian *</label>
+                                <select required>
+                                    <option value="">Pilih...</option>
+                                    <option>Baru sekali</option>
+                                    <option>Beberapa kali</option>
+                                    <option>Sering (lebih dari 5x)</option>
+                                    <option>Hampir setiap hari</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Tanggal Kejadian Terakhir</label>
+                                <input type="date">
+                            </div>
+                            <div class="form-group">
+                                <label>Lokasi Kejadian</label>
+                                <input type="text" placeholder="Contoh: SMPN 1 Jakarta / Instagram">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Kronologi Kejadian *</label>
+                            <textarea rows="7" required maxlength="2000"
+                                placeholder="Ceritakan secara detail: apa yang terjadi, siapa yang terlibat, bagaimana kejadiannya..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Pelaku (boleh inisial)</label>
+                            <input type="text" placeholder="Contoh: Budi / Kelas 8B / @username">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nama Saksi (jika ada)</label>
+                            <input type="text" placeholder="Nama-nama yang melihat kejadian">
+                        </div>
+                    </div>
+
+                    <!-- Bukti -->
+                    <div class="form-section">
+                        <h4 class="form-section-title">📎 Bukti Pendukung (opsional)</h4>
+                        <p class="form-section-desc">
+                            Upload screenshot, foto, atau dokumen. Maks. 5MB per file.
+                        </p>
+
+                        <div class="file-upload">
+                            <input type="file" id="bukti" multiple accept="image/*,.pdf">
+                            <label for="bukti" class="file-upload-label">
+                                <span class="file-icon">📤</span>
+                                <span class="file-text">Klik untuk upload file</span>
+                                <span class="file-sub">atau drag & drop di sini</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Checkbox -->
+                    <div class="form-section">
+                        <label class="checkbox-label">
+                            <input type="checkbox" required>
+                            <span>Saya menyatakan bahwa laporan ini <strong>benar</strong> dan dapat dipertanggungjawabkan.</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span>Saya bersedia dihubungi kembali untuk klarifikasi.</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" required>
+                            <span>Saya setuju laporan ini diteruskan ke pihak berwenang jika diperlukan.</span>
+                        </label>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary btn-large">
+                            🚀 Kirim Laporan
+                        </button>
+                        <p class="form-submit-note">
+                            Laporanmu akan ditindaklanjuti dalam waktu maksimal <strong>3x24 jam</strong>.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUCCESS MODAL -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">✅</div>
+            <h3>Laporan Terkirim!</h3>
+            <p>
+                Terima kasih sudah berani melapor. Laporanmu akan kami proses 
+                dalam 3x24 jam. Nomor tiket laporanmu:
+            </p>
+            <div class="ticket-number" id="ticketNumber">#SB-2026-XXXX</div>
+            <p class="modal-note">
+                Simpan nomor ini untuk mengecek status laporan.
+            </p>
+            <button class="btn btn-primary" onclick="closeModal()">Tutup</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <!-- ... footer di sini ... -->
+
+        <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Kolom 1: Brand -->
+          <div class="footer-col">
+            <a href="index.html" class="logo footer-logo">
+              <span class="logo-icon">🛡️</span>
+              <span class="logo-text"
+                >Stop<span class="highlight">Bullying</span></span
+              >
+            </a>
+            <p class="footer-desc">
+              Platform edukasi & dukungan untuk korban perundungan. Bersama kita
+              ciptakan lingkungan yang aman untuk semua anak.
+            </p>
+            <div class="footer-social">
+              <a href="#" aria-label="Instagram">📷</a>
+              <a href="#" aria-label="Twitter">🐦</a>
+              <a href="#" aria-label="TikTok">🎵</a>
+              <a href="#" aria-label="YouTube">▶️</a>
+            </div>
+          </div>
+
+          <!-- Kolom 2: Navigasi -->
+          <div class="footer-col">
+            <h4>Navigasi</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="edukasi.html">Edukasi</a></li>
+              <li><a href="cerita.html">Cerita</a></li>
+              <li><a href="bantuan.html">Bantuan</a></li>
+              <li><a href="lapor.html">Lapor Kasus</a></li>
+            </ul>
+          </div>
+
+          <!-- Kolom 3: Hotline Darurat -->
+          <div class="footer-col">
+            <h4>Hotline Darurat</h4>
+            <ul class="footer-links">
+              <li><a href="tel:119">📞 119 ext 8</a></li>
+              <li><a href="tel:02131901556">📞 021-31901556</a></li>
+              <li><a href="tel:1500772">📞 1500-772</a></li>
+              <li><a href="tel:129">📞 129 (SAPA)</a></li>
+            </ul>
+          </div>
+
+          <!-- Kolom 4: Disclaimer -->
+          <div class="footer-col">
+            <h4>Disclaimer</h4>
+            <p class="footer-desc">
+              Website ini dibuat untuk tujuan <strong>edukasi</strong>. Untuk
+              kasus darurat, segera hubungi hotline resmi atau pihak berwenang.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 StopBullying. Dibuat dengan 💙 untuk anak Indonesia.</p>
+          <p class="footer-bottom-links">
+            <a href="#">Kebijakan Privasi</a> ·
+            <a href="#">Syarat & Ketentuan</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

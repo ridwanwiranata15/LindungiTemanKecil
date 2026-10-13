@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerita - StopBullying</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR (active di Cerita) -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🛡️</span>
+                <span class="logo-text">Stop<span class="highlight">Bullying</span></span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
+                <li><a href="edukasi.html" class="nav-link">Edukasi</a></li>
+                <li><a href="cerita.html" class="nav-link active">Cerita</a></li>
+                <li><a href="bantuan.html" class="nav-link">Bantuan</a></li>
+                <li><a href="lapor.html" class="btn-lapor">Lapor Sekarang</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <span class="page-badge">💬 CERITA NYATA</span>
+            <h1>Suara Mereka yang Pernah Terdiam</h1>
+            <p>
+                Kumpulan cerita jujur dari korban, pelaku yang bertobat, dan keluarga. 
+                Semua dibagikan secara anonim agar bisa menjadi pelajaran berharga.
+            </p>
+        </div>
+    </section>
+
+    <!-- IN MEMORIAM -->
+    <section class="section">
+        <div class="container">
+            <div class="memoriam">
+                <div class="memoriam-icon">🕊️</div>
+                <h3>In Memoriam</h3>
+                <p class="memoriam-text">
+                    Untuk setiap anak yang pergi terlalu cepat karena perundungan — 
+                    kita mendengar kalian. Kita tidak akan lupa. Dan kita akan 
+                    berjuang agar tidak ada lagi yang mengalami hal yang sama.
+                </p>
+                <p class="memoriam-dedication">
+                    "Kamu berharga. Kamu tidak sendiri. Kita akan terus melawan."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FILTER -->
+    <section class="section gray-bg">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">GALERI CERITA</span>
+                <h2 class="section-title">Pilih Kategori Cerita</h2>
+            </div>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="korban">Korban</button>
+                <button class="filter-btn" data-filter="pelaku">Pelaku Tobat</button>
+                <button class="filter-btn" data-filter="keluarga">Keluarga</button>
+                <button class="filter-btn" data-filter="saksi">Saksi</button>
+            </div>
+
+            <div class="cerita-grid" id="ceritaGrid">
+                <!-- Cerita 1 -->
+                <div class="cerita-card" data-category="korban">
+                    <div class="cerita-tag tag-korban">Korban</div>
+                    <div class="cerita-quote">"</div>
+                    <p class="cerita-text">
+                        Setiap hari aku pura-pura sakit perut supaya nggak masuk sekolah. 
+                        Orang tuaku nggak tahu. Guruku nggak tahu. Aku sendirian. 
+                        Sampai akhirnya aku memberanikan diri cerita ke kakakku. 
+                        Dia bantu aku lapor. Sekarang aku sudah pindah sekolah dan jauh lebih baik.
+                    </p>
+                    <div class="cerita-author">
+                        <div class="author-avatar">A</div>
+                        <div>
+                            <h4>Anonim</h4>
+                            <span>Siswa SMP, 14 tahun</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cerita 2 -->
+                <div class="cerita-card" data-category="pelaku">
+                    <div class="cerita-tag tag-pelaku">Pelaku Tobat</div>
+                    <div class="cerita-quote">"</div>
+                    <p class="cerita-text">
+                        Aku pernah jadi pembully waktu SMP. Kupikir itu lucu, semua temanku 
+                        tertawa. Sampai suatu hari aku lihat dia menangis sendirian di toilet. 
+                        Sejak itu aku sadar — apa yang kulakukan bukan lelucon, tapi luka. 
+                        Aku minta maaf, dan sampai sekarang aku masih belajar jadi orang yang lebih baik.
+                    </p>
+                    <div class="cerita-author">
+                        <div class="author-avatar">B</div>
+                        <div>
+                            <h4>Anonim</h4>
+                            <span>Mahasiswa, 20 tahun</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cerita 3 -->
+                <div class="cerita-card" data-category="keluarga">
+                    <div class="cerita-tag tag-keluarga">Keluarga</div>
+                    <div class="cerita-quote">"</div>
+                    <p class="cerita-text">
+                        Adikku berhenti sekolah di kelas 5 SD. Dia nggak mau keluar rumah 
+                        selama setahun. Kami baru tahu setelah dia mulai menyakiti dirinya sendiri. 
+                        Sekarang dia sudah pulih, tapi butuh 3 tahun terapi. Bullying itu nyata, 
+                        dan efeknya jangka panjang.
+                    </p>
+                    <div class="cerita-author">
+                        <div class="author-avatar">C</div>
+                        <div>
+                            <h4>Anonim</h4>
+                            <span>Kakak korban, 24 tahun</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cerita 4 -->
+                <div class="cerita-card" data-category="saksi">
+                    <div class="cerita-tag tag-saksi">Saksi</div>
+                    <div class="cerita-quote">"</div>
+                    <p class="cerita-text">
+                        Aku dulu cuma diam waktu lihat temanku dibully. Aku takut jadi sasaran 
+                        berikutnya. Tapi diamku justru bikin dia makin terpuruk. 
+                        Kalau bisa mengulang waktu, aku akan berani membela dia.
+                    </p>
+                    <div class="cerita-author">
+                        <div class="author-avatar">D</div>
+                        <div>
+                            <h4>Anonim</h4>
+                            <span>Pelajar SMA, 17 tahun</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cerita 5 -->
+                <div class="cerita-card" data-category="korban">
+                    <div class="cerita-tag tag-korban">Korban</div>
+                    <div class="cerita-quote">"</div>
+                    <p class="cerita-text">
+                        Bullying verbal itu paling menyakitkan. Mereka bilang aku "bodoh", 
+                        "jelek", "nggak guna". Setiap kata itu nempel di otakku sampai dewasa. 
+                        Butuh bertahun-tahun untuk percaya lagi bahwa aku berharga.
+                    </p>
+                    <div class="cerita-author">
+                        <div class="author-avatar">E</div>
+                        <div>
+                            <h4>Anonim</h4>
+                            <span>Karyawan, 27 tahun</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cerita 6 -->
+                <div class="cerita-card" data-category="saksi">
+                    <div class="cerita-tag tag-saksi">Saksi</div>
+                    <div class="cerita-quote">"</div>
+                    <p class="cerita-text">
+                        Aku pernah jadi upstander — aku berani bilang "stop" waktu temanku 
+                        dibully di kantin. Meskipun tanganku gemetar, tapi hasilnya luar biasa. 
+                        Pelaku diam, dan temanku tersenyum ke arahku. Sejak itu aku tahu — 
+                        satu orang berani bisa mengubah segalanya.
+                    </p>
+                    <div class="cerita-author">
+                        <div class="author-avatar">F</div>
+                        <div>
+                            <h4>Anonim</h4>
+                            <span>Mahasiswa, 19 tahun</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM BERBAGI CERITA -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">BERBAGI</span>
+                <h2 class="section-title">Bagikan Ceritamu</h2>
+                <p class="section-desc">
+                    Ceritamu bisa jadi penyemangat untuk orang lain yang sedang berjuang. 
+                    Semua cerita dibagikan secara <strong>anonim</strong>.
+                </p>
+            </div>
+
+            <form class="story-form" onsubmit="handleStorySubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Kategori *</label>
+                        <select required>
+                            <option value="">Pilih kategori...</option>
+                            <option>Korban</option>
+                            <option>Pelaku Tobat</option>
+                            <option>Keluarga</option>
+                            <option>Saksi</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Usia (opsional)</label>
+                        <input type="number" placeholder="Contoh: 17" min="5" max="100">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Ceritamu *</label>
+                    <textarea rows="8" required maxlength="1000"
+                        placeholder="Ceritakan pengalamanmu... (maks. 1000 karakter)"></textarea>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" required>
+                        <span>Saya setuju cerita ini dibagikan secara anonim untuk tujuan edukasi.</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Kirim Cerita</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <!-- ... footer di sini ... -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Kolom 1: Brand -->
+          <div class="footer-col">
+            <a href="index.html" class="logo footer-logo">
+              <span class="logo-icon">🛡️</span>
+              <span class="logo-text"
+                >Stop<span class="highlight">Bullying</span></span
+              >
+            </a>
+            <p class="footer-desc">
+              Platform edukasi & dukungan untuk korban perundungan. Bersama kita
+              ciptakan lingkungan yang aman untuk semua anak.
+            </p>
+            <div class="footer-social">
+              <a href="#" aria-label="Instagram">📷</a>
+              <a href="#" aria-label="Twitter">🐦</a>
+              <a href="#" aria-label="TikTok">🎵</a>
+              <a href="#" aria-label="YouTube">▶️</a>
+            </div>
+          </div>
+
+          <!-- Kolom 2: Navigasi -->
+          <div class="footer-col">
+            <h4>Navigasi</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="edukasi.html">Edukasi</a></li>
+              <li><a href="cerita.html">Cerita</a></li>
+              <li><a href="bantuan.html">Bantuan</a></li>
+              <li><a href="lapor.html">Lapor Kasus</a></li>
+            </ul>
+          </div>
+
+          <!-- Kolom 3: Hotline Darurat -->
+          <div class="footer-col">
+            <h4>Hotline Darurat</h4>
+            <ul class="footer-links">
+              <li><a href="tel:119">📞 119 ext 8</a></li>
+              <li><a href="tel:02131901556">📞 021-31901556</a></li>
+              <li><a href="tel:1500772">📞 1500-772</a></li>
+              <li><a href="tel:129">📞 129 (SAPA)</a></li>
+            </ul>
+          </div>
+
+          <!-- Kolom 4: Disclaimer -->
+          <div class="footer-col">
+            <h4>Disclaimer</h4>
+            <p class="footer-desc">
+              Website ini dibuat untuk tujuan <strong>edukasi</strong>. Untuk
+              kasus darurat, segera hubungi hotline resmi atau pihak berwenang.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 StopBullying. Dibuat dengan 💙 untuk anak Indonesia.</p>
+          <p class="footer-bottom-links">
+            <a href="#">Kebijakan Privasi</a> ·
+            <a href="#">Syarat & Ketentuan</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
